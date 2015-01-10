@@ -29,6 +29,7 @@ public class ItemController {
 	private static final Logger LOG = LoggerFactory.getLogger(ItemController.class);
 	
 	//Map to store employees, ideally we should use database
+	
 	private static Map<String, Item> data = new HashMap<String, Item>();
 	
 	@PostConstruct
