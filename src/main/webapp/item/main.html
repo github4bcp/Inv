@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="inventory">
+<head>
+<link rel="stylesheet"	href="../angular/bootstrap.min.css">
+<script
+	src="../angular/angular.min.js"></script>
+</head>
+<body ng-controller="itemController">
+	<div class="container">
+		<div ng-include="'details.html'"></div>
+		<div ng-include="'list.html'"></div>
+	</div>
+	<script src="item.js"></script>
+</body>
+</html>

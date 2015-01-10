@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Inv
+Bundle-SymbolicName: Inv
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.bcp.inv.controller,
+ com.bcp.inv.model,
+ com.bcp.test

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<link href="../angular/bootstrap.min.css" rel="stylesheet">
+<link href="../angular/xeditable/css/xeditable.css" rel="stylesheet">
+<script
+	src="../angular/angular.min.js"></script>
+<script src="../angular/xeditable/js/xeditable.js"></script>
+<body>
+	<div ng-controller="EditableTableCtrl" data-ng-init="loadItems()">
+		<form editable-form name="sellerform" onaftersave="saveTable()"
+			oncancel="cancel()">
+
+			<!-- table -->
+			<table class="table table-striped">
+				<tr style="font-weight: bold">
+					<td style="width: 40%">Item</td>
+					<td style="width: 20%">Price</td>
+					<td style="width: 30%">Quantity</td>
+					<td style="width: 30%">Total</td>
+					<td style="width: 5%">
+					
+					
+					<span ng-show="sellerform.$visible">Action</span></td>
+				</tr>
+				<tr ng-repeat="billedItem in billedItems | filter:filterUser">
+					<td>
+					
+						<div ng-show="!editmode" class="col-sm-10">
+							<span editable-text="billedItem.quantity" e-form="sellerform" e-ng-model = "billedItem.item.name"> {{ billedItem.item.name }} </span>
+   						</div>    
+					
+						<div ng-show="editmode" class="col-sm-10">
+							<select novalidate="" ng-model="selectedItem" ng-options="g.code as g.name for g in itemGroups"></select>
+						</div>
+						
+					
+					
+						<!-- editable group (select-remote) -->
+					</td>
+					
+										
+					<td>
+						<span editable-text="billedItem.quantity" e-form="sellerform" e-ng-model="billedItem.item.price" e-name="price" >{{ billedItem.item.price }} </span>
+					</td>
+					
+					<td>
+						<span
+						editable-text="billedItem.quantity" e-form="sellerform"
+						onbeforesave="checkName($data, billedItem.quantity)"> {{ billedItem.quantity}} </span>
+					</td>
+					
+					<td>
+						<span
+						text="billedItem.total" e-form="sellerform"
+						onbeforesave="checkName($data, billedItem.total)"> {{ billedItem.total}} </span>
+					</td>
+					
+					<td><button type="button" ng-show="sellerform.$visible" class="btn btn-danger"
+							ng-click="deleteItem($index)">Del</button></td>
+				</tr>
+			</table>
+
+			<!-- buttons -->
+			<div class="btn-edit" >
+				<button type="button" class="btn btn-success"
+					ng-show="!sellerform.$visible" ng-click="sellerform.$show()">
+					Generate</button>
+			</div>
+			<div class="btn-form" ng-show="sellerform.$visible">
+				<button type="button" ng-disabled="sellerform.$waiting"
+					ng-click="addItem()" class="btn btn-success pull-right">add
+					item</button>
+				<button type="submit" ng-disabled="sellerform.$waiting"
+					class="btn btn-success">save</button>
+				<button type="button" ng-disabled="sellerform.$waiting"
+					ng-click="sellerform.$cancel()" class="btn btn-danger">cancel</button>
+			</div>
+
+		</form>
+	</div>
+	<script src="seller-grid.js"></script>
+</body>
+</html>

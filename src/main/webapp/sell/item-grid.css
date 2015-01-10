@@ -1,0 +1,53 @@
+
+.ui-input-text{
+    border: 0px !important;
+    box-shadow: none !important;
+    background-color: inherit !important;
+}
+
+
+.gridStyle {
+	border: 0px;
+	height: 200px;
+}
+
+element.style {
+	
+}
+
+.subTotal {
+	position: absolute;
+	right: 0px;
+	width: 300px;
+	background-color: inherit;
+}
+
+.ngHeaderContainer {
+	position: relative;
+	overflow: hidden;
+	font-weight: bold;
+	background-color: #fff;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #333;
+	background-color: #fff;
+}
+
+.table {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+table {
+	max-width: 100%;
+	background-color: transparent;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
