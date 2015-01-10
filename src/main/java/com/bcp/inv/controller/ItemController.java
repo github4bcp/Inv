@@ -50,8 +50,7 @@ public class ItemController {
 		value2.setDiscount(.10f);
 		value2.setTax(.51f);
 		value2.setLabour(.500f);
-		
-		
+			
 		data.put("1", value1);
 		data.put("2", value2);
 	}
