@@ -58,6 +58,9 @@ public class DailyTransController {
 			pay.add(payments);
 		}
 				
+		
+		
+		
 		return payments;
 	}
 	
