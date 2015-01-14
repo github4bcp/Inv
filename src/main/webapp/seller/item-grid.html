@@ -2,8 +2,7 @@
 <html ng-app="app">
 <link href="../angular/bootstrap.min.css" rel="stylesheet">
 <link href="../angular/xeditable/css/xeditable.css" rel="stylesheet">
-<script
-	src="../angular/angular.min.js"></script>
+<script src="../angular/angular.min.js"></script>
 <script src="../angular/xeditable/js/xeditable.js"></script>
 <body>
 	<div ng-controller="EditableTableCtrl" data-ng-init="loadItems()">
@@ -17,51 +16,44 @@
 					<td style="width: 20%">Price</td>
 					<td style="width: 30%">Quantity</td>
 					<td style="width: 30%">Total</td>
-					<td style="width: 5%">
-					
-					
-					<span ng-show="sellerform.$visible">Action</span></td>
+					<td style="width: 5%"><span ng-show="sellerform.$visible">Action</span></td>
 				</tr>
 				<tr ng-repeat="billedItem in billedItems | filter:filterUser">
 					<td>
-					
+
 						<div ng-show="!editmode" class="col-sm-10">
-							<span editable-text="billedItem.quantity" e-form="sellerform" e-ng-model = "billedItem.item.name"> {{ billedItem.item.name }} </span>
-   						</div>    
-					
-						<div ng-show="editmode" class="col-sm-10">
-							<select novalidate="" ng-model="selectedItem" ng-options="g.code as g.name for g in itemGroups"></select>
+							<span editable-text="billedItem.quantity" e-form="sellerform"
+								e-ng-model="billedItem.item.name"> {{
+								billedItem.item.name }} </span>
 						</div>
-						
-					
-					
-						<!-- editable group (select-remote) -->
+
+						<div ng-show="editmode" class="col-sm-10">
+							<select novalidate="" ng-model="selectedItem"
+								ng-options="g.code as g.name for g in itemGroups"></select>
+						</div> <!-- editable group (select-remote) -->
 					</td>
-					
-										
-					<td>
-						<span editable-text="billedItem.quantity" e-form="sellerform" e-ng-model="billedItem.item.price" e-name="price" >{{ billedItem.item.price }} </span>
-					</td>
-					
-					<td>
-						<span
-						editable-text="billedItem.quantity" e-form="sellerform"
-						onbeforesave="checkName($data, billedItem.quantity)"> {{ billedItem.quantity}} </span>
-					</td>
-					
-					<td>
-						<span
-						text="billedItem.total" e-form="sellerform"
-						onbeforesave="checkName($data, billedItem.total)"> {{ billedItem.total}} </span>
-					</td>
-					
-					<td><button type="button" ng-show="sellerform.$visible" class="btn btn-danger"
-							ng-click="deleteItem($index)">Del</button></td>
+
+
+					<td><span editable-text="billedItem.quantity"
+						e-form="sellerform" e-ng-model="billedItem.item.price"
+						e-name="price">{{ billedItem.item.price }} </span></td>
+
+					<td><span editable-text="billedItem.quantity"
+						e-form="sellerform"
+						onbeforesave="checkName($data, billedItem.quantity)"> {{
+							billedItem.quantity}} </span></td>
+
+					<td><span text="billedItem.total" e-form="sellerform"
+						onbeforesave="checkName($data, billedItem.total)"> {{
+							billedItem.total}} </span></td>
+
+					<td><button type="button" ng-show="sellerform.$visible"
+							class="btn btn-danger" ng-click="deleteItem($index)">Del</button></td>
 				</tr>
 			</table>
 
 			<!-- buttons -->
-			<div class="btn-edit" >
+			<div class="btn-edit">
 				<button type="button" class="btn btn-success"
 					ng-show="!sellerform.$visible" ng-click="sellerform.$show()">
 					Generate</button>
