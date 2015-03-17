@@ -15,7 +15,6 @@
 		<jackson.databind-version>2.2.3</jackson.databind-version>
 	</properties>
 	
-	
 	<dependencies>
 		<!-- Jackson -->
 		<dependency>
